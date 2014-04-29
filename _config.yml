@@ -36,6 +36,8 @@ bing_verify:
 links:
     - title: Welcome
       url: /welcome
+    - title: Project Outline
+      url: /project-outline
     #  - title: Theme Setup
     #    url: /theme-setup
     #  - title: External Link
