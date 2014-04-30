@@ -40,6 +40,7 @@ The EventBus is an asynchronous communication bus that allows us to connect send
 So, let's get into some actual pseudo-code! 
  
 **FetchTask.java**
+
 ```
 class FetchTask extends AsyncTask<...> {
     private EventBus downloadBus;
@@ -56,6 +57,7 @@ class FetchTask extends AsyncTask<...> {
 ```
  
 **DownloadManager.java**
+
 ```
 class DownloadManager {
     private EventBus downloadBus;
@@ -76,6 +78,7 @@ class DownloadManager {
 ```
  
 **Fragment.java**
+
 ```
 class Fragment {
     public void init() {
