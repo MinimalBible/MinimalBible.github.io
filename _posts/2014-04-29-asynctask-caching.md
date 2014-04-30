@@ -41,7 +41,7 @@ So, let's get into some actual pseudo-code!
  
 **FetchTask.java**
 
-```
+{% highlight java %}
 class FetchTask extends AsyncTask<...> {
     private EventBus downloadBus;
     public FetchTask(EventBus downloadBus) {
@@ -54,11 +54,11 @@ class FetchTask extends AsyncTask<...> {
         return results;
     }
 }
-```
+{% endhighlight %}
  
 **DownloadManager.java**
 
-```
+{% highlight java %}
 class DownloadManager {
     private EventBus downloadBus;
     private DownloadManager instance;
@@ -75,11 +75,11 @@ class DownloadManager {
         return this.downloadBus;
     }
 }
-```
+{% endhighlight %}
  
 **Fragment.java**
 
-```
+{% highlight java %}
 class Fragment {
     public void init() {
         EventBus downloadBus = DownloadManager.getInstance().getDownloadBus();
@@ -102,7 +102,7 @@ class Fragment {
         // Initialize the UI - can safely assume we're on main thread
     }
 }
-```
+{% endhighlight %}
  
 So, let's quickly review what's going on - the Fragment gets initialized, and gets the Download manager, so it can get the event bus. Then, since the AsyncTask is started alongside the new `DownloadManager`, we register that we should be notified when done.
  
