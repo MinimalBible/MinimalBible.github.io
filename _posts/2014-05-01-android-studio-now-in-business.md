@@ -22,7 +22,7 @@ Problem: **Configuring builds to use Gradle.**
  
 So my build of JSword was going just fine, but I wanted to have a one-click build of the entire MinimalBible app (and eventually use something like [Travis](https://travis-ci.org/)). That means getting a build of JSword working alongside the main build.
  
-Originally, it would have made the most sense to stick with Ant builds and re-use targets from that. But me being adventurous and wanting to try the new shiny tooling, I gave Gradle a shot. The results really didn't pan out **LINK TO OLD POST HERE**.
+Originally, it would have made the most sense to stick with Ant builds and re-use targets from that. But me being adventurous and wanting to try the new shiny tooling, I gave Gradle a shot. The results really didn't [pan out]({% post 2014-04-22-xml-is-a-terrible-programming-language.md %}).
  
 To be honest, I don't really remember why I gave Android Studio a second shot. But I did, and got a [preliminary build](https://github.com/MinimalBible/MinimalBible/commit/77c797d4f1621511f659557397f597fd0843a6f6) working after an hour or two. I knew the build wasn't perfect, but developing in Android Studio was now a live option.
  
