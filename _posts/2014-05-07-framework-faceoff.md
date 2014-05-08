@@ -21,11 +21,13 @@ And a quick note on what each one is before I get to comparing them. **RoboGuice
 RoboGuice
 ---------
 **Pros:**
+
 * **Feature-filled** - Seriously. It comes with its own Event Bus (the `EventManager`) on top of the IoC container, and I'm sure there's even more there.
 * **Well-used** - RoboGuice lists itself as being used by Groupon, FaceBook Messenger, and other high-profile apps.
 * **Reflective** - RoboGuice uses reflection to accomplish everything, which means there's absolutely no code generation involved.
  
 **Cons:**
+
 * **Documentation** - The documentation is **awful**. I'm not saying this to be mean, but the documentation for RoboGuice is simply unusable. Even the JavaDocs are hosted by [someone else](http://www.imobilebbs.com/download/android/roboguice/javadoc/). If you're already familiar with Guice, you likely will be able to figure out a solution. If not, [StackOverflow](http://stackoverflow.com/questions/tagged/roboguice) is about to become a very close friend.
 * **Reflective** - Can't do any compile-time checking like Dagger, so all bugs are discovered at run-time
 * **Feature-filled** - RoboGuice has everything, including the kitchen sink, and an extra refrigerator too. It's complicated trying to figure out how exactly something should be done.
@@ -43,12 +45,14 @@ So I don't plan on using this, but if you need a one-stop-shop solution, RoboGui
 Android Annotations (AA)
 ------------------------
 **Pros:**
+
 * **Code generation** - AA works by generating the code you need at compile time, rather than doing anything at run-time. This means there's no overhead for using the reflection APIs.
 * **Feature-filled** - Because AA runs at compile time, it can do some fancier things. For example, annotation a method with `@Background` allows you to run an arbitrary method off the main thread [without using](https://github.com/excilys/androidannotations/wiki/WorkingWithThreads) AsyncTasks
 * **Documentation** - I hate that I need to actually include this as a Pro, I feel like it should be a given. That being said, the [documentation for AA](https://github.com/excilys/androidannotations/wiki) is pretty great. The community seems to be fairly active too, so that's great.
 * **RoboGuice compatibility** - AA went above and beyond to make sure their framework [plays nice](https://github.com/excilys/androidannotations/wiki/RoboGuiceIntegration) with RoboGuice, so you can have something of the best of both worlds
  
 **Cons:**
+
 * **Code generation** - Part of what allows AA to do some amazing stuff makes it harder to understand. I don't fault the designers for this, it was going to be inherent in doing code generation to start. That being said, the semantics of using `MyClass` vs. `MyClass_`, and when the injection of `@Bean`s and `@ViewById`s are complete can be confusing.
 * **[JSR-330](https://jcp.org/en/jsr/detail?id=330)** - All the other injection frameworks (Dagger, RoboGuice) are JSR-330 compliant, Android Annotations is not. Not that big of a deal, but is helpful if other people are working with your project, and I think the names are better in the JSR. Also means that AA is missing the `Producer<T>` pattern that both Dagger and RoboGuice supply.
 * **Opinionated** - Because AA uses generated classes, you have to use their supplied patterns. For example, the `setArguments()` method goes away in `Fragment`s, you have to use `MyFragment_.builder().myArgument().build()`. To be fair, it makes type checking far simpler, but you do have to go through the builder.
@@ -65,12 +69,14 @@ Dagger / ButterKnife
 *Note: I realize these are separate products, but they work so well together, and you need both to actually rival RoboGuice or AA*
  
 **Pros:**
+
 * **Code Generation** - Here's another code generation framework, so no reflection penalty. Also, Dagger is great about notifying you of errors in your injection code, so you don't have to wait until runtime to find the bugs (like RoboGuice). You also don't have to worry about `Class_` semantics (like AA).
 * **Focus** - These are very focused libraries. They're worried about doing a few things, and doing them well. You won't have confusing APIs to navigate through.
 * **Shiny** - The libraries are shiny and new. This isn't a giant selling point, but these libraries are very up-to-date and modern with current techniques, design patterns, etc. They're **[Good Code](https://xkcd.com/844/)**.
 * **Explicit** - Dagger forces you to be explicit about your design, which is good style, and you don't have to understand the semantics underlying a framework like AA.
  
 **Cons:**
+
 * **Limited API** - While Dagger and ButterKnife are very clear about what they do, it also means they don't have functionality other frameworks do. Just means you're left to do some of the code yourself.
  
 **Final Thoughts:** 
@@ -85,17 +91,19 @@ Bonus Round: Android Annotations + Dagger
 *Note: You can actually use Dagger as the IoC container and rely on AA for the Android meta-programming. I looked into trying to use this as well, and hope that it's helpful, as there is very little information about programming this way on the internet.*
  
 **Pros:**
+
 * **Two libraries** - Get the functionality of a JSR-330-compliant IoC container, and a full-featured Android toolkit! The power of Android Annotations, and the usability of Dagger!
  
 **Cons:**
+
 * **Two libraries** - It is still a bit confusing trying to mix two libraries. For example, both AA and Dagger provide a `@Singleton` annotation, so you need to make sure you understand which one you're using.
 * **Code Generation** - You still have to understand some of the semantics of using AA. For example, you can't `@Inject MyClass`, but have to:
-```
+{% highlight java %}
 @Provides<MyClass>
 public MyClass provideClass() {
     return (MyClass)new MyClass_();
 }
-```
+{% endhighlight %}
 If you tried to actually inject the original class, it wouldn't have the functionality actually supplied by AA. And when you're trying to do this with `@Singleton` as well, things can get confusing.
  
 **Final Thoughts:** 
