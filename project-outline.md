@@ -35,6 +35,7 @@ These are the tasks that will need to be accomplished before the 1.0 major relea
   * Download Manager
 
     * Bible browser
+	**Done as of [594df14a3191c7d4ba6f667cd3681c9c57a070b8](https://github.com/MinimalBible/MinimalBible/commit/594df14a3191c7d4ba6f667cd3681c9c57a070b8)
     * Can download Bibles
     * Can remove Bibles
     * Generate search indexes for Bibles
