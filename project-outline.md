@@ -39,6 +39,7 @@ These are the tasks that will need to be accomplished before the 1.0 major relea
     * Can download Bibles
 	**Done as of [1017f9a34d8972f43bf64add2b5034cb2ebed063](https://github.com/MinimalBible/MinimalBible/commit/1017f9a34d8972f43bf64add2b5034cb2ebed063)
     * Can remove Bibles
+	**Done as of [1a8b3f2eee9326d55d0da5686312e523fa6c6605](https://github.com/MinimalBible/MinimalBible/commit/1a8b3f2eee9326d55d0da5686312e523fa6c6605)
     * Generate search indexes for Bibles
   * Bible Viewer
 
