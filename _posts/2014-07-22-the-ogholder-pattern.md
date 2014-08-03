@@ -90,7 +90,7 @@ Alright, time for some explanation.
  
 1. Our `ActivityModules` class declares itself as adding to the `RootModules` class. **This means Dagger is expecting us to call .plus() to add ActivityModules to RootModules.**
  
-    1a. For the technically inclined, this is semantically different from `@Module(includes=...)`, as the `includes` option tells Dagger to build the included graph at the same time as the root.
+  * For the technically inclined, this is semantically different from `@Module(includes=...)`, as the `includes` option tells Dagger to build the included graph at the same time as the root.
    
 2. Given that we get the root `ObjectGraph` from our `Application`, we now need to add the `ActivityModules` to it. The way this is done is by calling `.plus()` on the original graph, and storing the new graph.
  
