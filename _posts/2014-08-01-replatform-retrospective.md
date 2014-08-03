@@ -61,10 +61,10 @@ Both modules provide a singleton list that is used as configuration. It will not
 class MainConfig {
     @Provides @Singleton
     List<BookCategory> provideValidCategories() {
-        return new ArrayList<BookCategory>() {{
-            put(Category1);
-            put(Category2);
-        }};
+		List<BookCategory> categoryList = new ArrayList<BookCategory>();
+		categoryList.put(Category1);
+		categoryList.put(Category2);
+		return categoryList;
     }
 }
 {% endhighlight %}
@@ -75,9 +75,9 @@ class MainConfig {
 class TestConfig {
     @Provides @Singleton
     List<BookCategory> provideValidCategories() {
-        return new ArrayList<BookCategory>() {{
-            put(mockCategory1);
-        }};
+		List<BookCategory> categoryList = new ArrayList<BookCategory>();
+		categoryList.put(mockCategory1);
+		return categoryList;
     }
 }
 {% endhighlight %}
