@@ -129,34 +129,34 @@ To demonstrate the principle, we need to add only a single class:
 **OGHolder.java**
 {% highlight java %}
 public class OGHolder extends Fragment {
-                private final static String TAG = "OGHolder";
-                private ObjectGraph mObjectGraph;
+    private final static String TAG = "OGHolder";
+    private ObjectGraph mObjectGraph;
  
     // Use FragmentActivity for the support library
-                public static OGHolder get(Activity activity) { // 1
-                    // Use getSupportFragmentManager for support library
-                                FragmentManager manager = activity.getFragmentManager();
-                                OGHolder holder = (OGHolder) manager.findFragmentByTag(TAG); // 2
-                                if (holder == null) {
-                                                holder = new OGHolder();
-                                                manager.beginTransaction().add(holder, TAG).commit();
-                                }
-                                return holder;
-                }
+    public static OGHolder get(Activity activity) { // 1
+        // Use getSupportFragmentManager for support library
+        FragmentManager manager = activity.getFragmentManager();
+        OGHolder holder = (OGHolder) manager.findFragmentByTag(TAG); // 2
+        if (holder == null) {
+            holder = new OGHolder();
+            manager.beginTransaction().add(holder, TAG).commit();
+        }
+        return holder;
+    }
  
-                @Override
-                public void onCreate(Bundle savedInstanceState) {
-                                super.onCreate(savedInstanceState);
-                                setRetainInstance(true); // 3
-                }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true); // 3
+    }
  
-                public void persistGraph(ObjectGraph graph) {
-                                mObjectGraph = graph;
-                }
+	public void persistGraph(ObjectGraph graph) {
+		mObjectGraph = graph;
+    }
  
-                public ObjectGraph fetchGraph() {
-                                return mObjectGraph;
-                }
+    public ObjectGraph fetchGraph() {
+        return mObjectGraph;
+    }
 }
 {% endhighlight %}
  
