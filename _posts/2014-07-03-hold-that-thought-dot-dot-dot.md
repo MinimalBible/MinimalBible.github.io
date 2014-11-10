@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hold that thought..."
-modified: 2014-07-03 17:55:41 -0400
+modified: 2014-11-09 17:55:41 -0400
 tags: [delay, unit test, testing]
 image:
   feature: 
@@ -13,7 +13,7 @@ share:
 
 Hey all! Quick update:
 
-I've been trying for the past few weeks to get unit testing enabled on the app. This unfortunately hasn't been going well, and there have been too many late nights on [StackOverflow](http://stackoverflow.com) and Google with no luck.
+I've been trying for the past few weeks to get unit testing enabled on the app. This unfortunately hasn't been going well, and there have been too many late nights on StackOverflow and Google with no luck.
 
 The issues are entirely to do with Dagger and the `Application` lifecycle on Android. Currently, I need to inject mock objects into the `ObjectGraph` so that I can run the tests. Problem being, Dagger validates everything at compile time. Note that I'd have the same issues using any other dependency injection framework, it just happens that I'm using dagger right now. That being said, the only way to inject new objects is to `plus()` the original `ObjectGraph` and then store that back in the Application. I personally don't consider this acceptable - besides just being bad code (messing with the `Application` just doesn't sound like a great idea) I'm guessing I would run into issues later if multiple modules try to over-ride the inject for a class.
 

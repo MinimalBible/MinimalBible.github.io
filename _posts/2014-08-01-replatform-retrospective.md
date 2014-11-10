@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Replatform Retrospective"
-modified: 2014-08-02 22:11:40 -0400
+modified: 2014-11-09 22:11:40 -0400
 tags: [replatform, android studio, eclipse, hindsight, testing]
 image:
   feature: 
@@ -25,7 +25,7 @@ So, MinimalBible was built from the ground-up all over again. It ended up not be
 Lesson 1: Keep testing in mind
 ------------------------------
  
-One of the things I was looking forward to in switching to Android Studio was getting testing working. The way I had originally structured the application, it was borderline impossible to use Mock objects. I have more of the specifics in another post **link here**, but here's the problem in a nutshell:
+One of the things I was looking forward to in switching to Android Studio was getting testing working. The way I had originally structured the application, it was borderline impossible to use Mock objects. Here's the problem in a nutshell:
  
 **Problem:**
  
@@ -40,7 +40,7 @@ One of the things I was looking forward to in switching to Android Studio was ge
 Lesson 2: Static objects are awful
 ----------------------------------
  
-Every enterprise application I've worked on, and most Android applications, all have a dependency injection system of some form. I've previously outlined a number of them **link here**, but I settled on Dagger.
+Every enterprise application I've worked on, and most Android applications, all have a dependency injection system of some form. I've previously [outlined a number of them]({% post_url 2014-05-07-framework-faceoff.md %}), but I settled on Dagger.
  
 **Problem:**
  
