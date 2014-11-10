@@ -40,7 +40,7 @@ One of the things I was looking forward to in switching to Android Studio was ge
 Lesson 2: Static objects are awful
 ----------------------------------
  
-Every enterprise application I've worked on, and most Android applications, all have a dependency injection system of some form. I've previously [outlined a number of them]({% post_url 2014-05-07-framework-faceoff.md %}), but I settled on Dagger.
+Every enterprise application I've worked on, and most Android applications, all have a dependency injection system of some form. I've previously [outlined a number of them]({% post_url 2014-05-07-framework-faceoff %}), but I settled on Dagger.
  
 **Problem:**
  
