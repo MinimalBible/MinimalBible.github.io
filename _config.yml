@@ -34,10 +34,8 @@ bing_verify:
 # Links to include in top navigation
 # For external links add external: true
 links:
-    - title: Welcome
-      url: /welcome
-    - title: Project Outline
-      url: /project-outline
+    - title: Github
+      url: https://github.com/MinimalBible/MinimalBible
     #  - title: Theme Setup
     #    url: /theme-setup
     #  - title: External Link
