@@ -29,7 +29,8 @@ So, what will things look like going forward? Here's a couple of goals I'm setti
  
 ###Alpha release by November 30th###
  
-The core of the alpha release has been done for a while now - I can download the Bible text and display it. I need to get the project roadmap updated (LINK TO PROJECT ROADMAP HERE) but it's there. There are a couple of things left that need to be addressed before I can say I've hit an Alpha point:
+The core of the alpha release has been done for a while now - I can download the Bible text and display it. I need to get the project roadmap updated but it's there. There are a couple of things left that need to be addressed before I can say I've hit an Alpha point:
+**UPDATE**: I'm using Github for tracking issues instead of trying to maintain a roadmap. Find the issue tracker [here](https://github.com/MinimalBible/MinimalBible/issues)
  
 * Jump to text: Currently you can only scroll, the navigation drawer isn't functional.
 * Switch active book: You can download multiple books, but the system selects one automatically at start.
