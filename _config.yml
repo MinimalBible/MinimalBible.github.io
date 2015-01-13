@@ -1,6 +1,6 @@
 title:            MinimalBible
 description:      The site and blog of the MinimalBible project
-disqus_shortname: 
+disqus_shortname: minimalbible
 #Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://minimalbible.github.io/
 
