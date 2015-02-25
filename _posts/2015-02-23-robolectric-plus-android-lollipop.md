@@ -14,25 +14,25 @@ share:
 Getting actual Android code running on your computer
 ----------------------------------------------------
 
-So far in the life of [MinimalBible](0) the
+So far in the life of [MinimalBible][0] the
 whole testing situation has been... *eherm*... convoluted. I've previously outlined why
-I [replatformed](1) the application, how managing the `Application` lifecycle [makes testing
-difficult](2), and finally how I've gotten [non-emulator testing set up](3) to report code coverage.
+I [replatformed][1] the application, how managing the `Application` lifecycle [makes testing
+difficult][2], and finally how I've gotten [non-emulator testing set up][3] to report code coverage.
 
 One of the things I've wanted to do for a while, but proved difficult after many long nights with
-StackOverflow and other technology sites was get the [Robolectric](4) project working with my code.
+StackOverflow and other technology sites was get the [Robolectric][4] project working with my code.
 Robolectric is basically a re-implementation of the Android SDK designed for easy testing. So instead
 of having to run Android tests on an actual device, you can skip that.
 
-Quick caveat: [Don't write UI tests using Robolectric](5). Robolectric is great for running small tests
+Quick caveat: [Don't write UI tests using Robolectric][5]. Robolectric is great for running small tests
 that have to use Android API's, but should not be used to validate that your UI code is working. You won't
 have an emulator or other device to make sure you actually wrote the tests the right way.
 
 And with that out of the way, let me get into what it took for me to get Robolectric up and running for MinimalBible.
 I imagine there will be other people with similar issues, so it's good to go ahead and talk about. All the code
-this post is based off of can be found at commit [71fb362ffe](6).
+this post is based off of can be found at commit [71fb362ffe][6].
 
-Assuming you have the project set up as discussed [in my previous post](3) (which was inspired by [this](7)),
+Assuming you have the project set up as discussed [in my previous post][3] (which was inspired by [this][7]),
 the `build.gradle` file change is pretty simple. Just add the following dependency:
 
 ```groovy
@@ -54,7 +54,7 @@ android.library.reference.2=../../build/intermediates/exploded-aar/com.android.s
 
 The "suppress" line at the top is so that Android Studio doesn't warn you that the properties are unused.
     
-The `Activity` we're actually going to be testing is pretty simple too ([code here](8)):
+The `Activity` we're actually going to be testing is pretty simple too ([code here][8]):
 
 ```java
 
@@ -70,7 +70,7 @@ public class BasicSearch extends BaseActivity {
 }
 ```
     
-So now that the `Activity` is set up, we need to build a simple test case. Let's do something like this ([code here](9)):
+So now that the `Activity` is set up, we need to build a simple test case. Let's do something like this ([code here][9]):
 
 ```java
 
@@ -105,14 +105,14 @@ Robolectric + AppCompat - The deadly duo
 
 As of right now, Robolectric has very limited support for Android Lollipop (SDK 21), and most specifically the
 `appcompat` libraries it ships with. Unfortunately it appears that the `ActionBarDrawerToggle` is causing some
-[rather hairy problems](10) that aren't easy to figure out.
+[rather hairy problems][10] that aren't easy to figure out.
 
 So if you're trying to get Robolectric working on a Lollipop app, here are my tips from the school of hard knocks:
 
 1. You can only test Activities that do not use the `ActionBarDrawerToggle`. This thankfully means that `Fragment`
 testing will work just fine if you set them up maybe outside the original intended `Activity`.
 
-2. Please make sure that all tests receive an `@Config(emulateSdk = 18)` until [this issue](11) is closed.
+2. Please make sure that all tests receive an `@Config(emulateSdk = 18)` until [this issue][11] is closed.
 
 3. Please make sure that Robolectric picks up the support libraries when testing. If they are noticed correctly,
 the test will output text which includes the two lines below:
@@ -128,7 +128,7 @@ Summary
 -------
 
 So now that we've gone over how to get Robolectric working, and some of the tricks you need to get it working in
-Lollipop, go forward and write tests. Who knows, it might bump up your coverage metrics [11%](12).
+Lollipop, go forward and write tests. Who knows, it might bump up your coverage metrics [11%][12].
 
 Comment below if you have any questions, I'll do what I can to help!
 
